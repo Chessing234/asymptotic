@@ -235,6 +235,11 @@ lemma eqPlusBigO_iff_le_and_ge (C:NNReal) (X Y:ℝ) : (X =[C] Y + O(Z)) ↔ (X �
 lemma eqPlusBigO_rfl (C:NNReal) (X:E) {Z:ℝ} (hZ: 0 ≤ Z) : (X =[C] X + O(Z)) := by
   simp; positivity
 
+lemma eqPlusBigO_of_eq {C : NNReal} {X Y : E} {Z : ℝ} (h : X = Y) (hZ : 0 ≤ Z) :
+    X =[C] Y + O(Z) := by
+  subst h
+  exact eqPlusBigO_rfl C X hZ
+
 lemma eqPlusBigO_symm (C:NNReal) (X Y:E) {Z:ℝ} : (X =[C] Y + O(Z)) ↔ (Y =[C] X + O(Z)) := by
   simp [<-dist_eq_norm_sub]
   rw [dist_comm]
