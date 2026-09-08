@@ -62,6 +62,10 @@ lemma ll_of_le {X:E} {Y:ℝ} (h: ‖X‖ ≤ Y) : X ≪[1] Y := by simp [h]
 
 lemma ll_abs (X:E) : X ≪[1] ‖X‖ := by simp
 
+/-- The zero vector is majorized by any nonnegative quantity. -/
+lemma ll_zero {C : NNReal} {Y : ℝ} (hY : 0 ≤ Y) : (0 : E) ≪[C] Y := by
+  simp [hY]
+
 lemma ll_refl {X:ℝ} (hX: 0 ≤ X) : X ≪[1] X := by simp [abs_of_nonneg hX]
 
 lemma norm_ll_iff (C:NNReal) (X:E) (Y:ℝ) : (X ≪[C] Y) ↔ (‖X‖ ≪[C] Y) := by
