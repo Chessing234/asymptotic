@@ -10,7 +10,7 @@ def test_no_init_complemmas():
         text = p.read_text(errors="ignore")
         if "Mathlib.Init.Data.Int.CompLemmas" in text:
             hits.append(str(p.relative_to(ROOT)))
-    assert hits == []
+    assert hits == [], hits
 
 if __name__ == "__main__":
     test_no_init_complemmas()
