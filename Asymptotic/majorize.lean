@@ -223,7 +223,7 @@ lemma eqPlusBigO_def (C:NNReal) (X Y:E) (Z:ℝ) : (X =[C] Y + O(Z)) ↔ (X-Y ≪
 
 lemma eqPlusBigO_def' (C:NNReal) (X Y:E) (Z:ℝ) : (X =[C] Y + O(Z)) ↔ (‖X-Y‖ ≪[C] Z) := by simp
 
-lemma eqPlusBigO_iff_le_and_ge (C:NNReal) (X Y:ℝ) : (X =[C] Y + O(Z)) ↔ (X ≤ Y + C*Z ∧ X ≥ Y - C*Z) := by
+lemma eqPlusBigO_iff_le_and_ge (C:NNReal) (X Y Z:ℝ) : (X =[C] Y + O(Z)) ↔ (X ≤ Y + C*Z ∧ X ≥ Y - C*Z) := by
   simp [abs_le]
   rw [add_comm (C*Z) Y]
   exact and_comm
